@@ -7,7 +7,7 @@ if A == ("paris"):
 
 else: print ("Incorrect")
 
-B = input ("Germany, Capital?"). lower()
+B = input ("Germany , Capital?"). lower()
 if B == ("berlin"):
     print ("correct")
     score +=3
