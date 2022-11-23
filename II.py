@@ -1,7 +1,12 @@
-score = 0
+def easy_quiz():
+    score = 0
 
-A = input ("France , capital?"). lower()
-if A == ("paris"):
+
+
+print("Welcome to the easy Quiz")
+
+ans1 = input ("France , capital?"). lower()
+if ans1 == "paris":
     print ("correct")
     score +=2
 
