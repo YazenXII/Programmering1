@@ -1,4 +1,4 @@
-user_cash = int(input("How much cash do you posse ss?"))
+user_cash = int(input("How much cash do you possess?"))
 while not (bet := input("How much do you wish to sacrifice?")).isdigit():
     print("Insert Error, please write only in digits.")
 bet = int(bet)
