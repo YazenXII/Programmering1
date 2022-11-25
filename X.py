@@ -8,9 +8,6 @@ print(
     user_cash,
     "Dollars, thank you for your purchase. You may enjoy yourself.",
 )
-"""
-while not (money := input()).isdigit():
-    print("Please insert an amount.")
 
 dealer_cards = []
 player_cards = []
@@ -18,4 +15,3 @@ cards = int(2, 3, 4, 5, 6, 7, 8, 9, "jacks", "queen", "king").capitalize()
 
 while True:
     cards = input("1. gaze cards\n" "2. Hit\n" "3. Stand\n" "4. Double\n" "5. Split\n")
-"""
