@@ -9,8 +9,7 @@ print(
     "Dollars, thank you for your purchase. You may enjoy yourself.",
 )
 
-while not (money := input()).isdigit():
-    print("Please insert an amount.")
+Royalty = "Jack", "Queen", "King"
 
 dealer_cards = []
 player_cards = []
