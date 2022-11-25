@@ -1,3 +1,6 @@
+import random
+
+
 user_cash = int(input("How much cash do you possess?"))
 while not (bet := input("How much do you wish to sacrifice?")).isdigit():
     print("Insert Error, please write only in digits.")
@@ -24,4 +27,7 @@ while True:
         print(player_cards)
 
     if action == "2":
+        random.shuffle = cards
+
+    if action == "6":
         break
