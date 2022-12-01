@@ -27,17 +27,11 @@ while True:
         print(player_cards)
 
     if action == "2":
-<<<<<<< HEAD
         random.shuffle(cards)
         uttaget_kort = cards.pop()
         player_cards.append(uttaget_kort)
 
     print(player_cards)
 
-=======
-        random.shuffle = cards
-        player_cards.pop()
-        print(player_cards)
->>>>>>> 44696b7a01bbdcaa370ca103225533ca2e8b6a23
     if action == "6":
         break
