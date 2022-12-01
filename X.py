@@ -23,6 +23,10 @@ for i in range(2):
     uttaget_kort = cards.pop()
     player_cards.append(uttaget_kort)
 
+for i in range(2):
+    random.shuffle(cards)
+    uttaget_kort = cards.pop()
+    dealer_cards.append(uttaget_kort)
 
 while True:
     action = input(
@@ -30,7 +34,8 @@ while True:
     )
 
     if action == "1":
-        print(player_cards)
+        print("your cards", player_cards)
+        print("dealer cards", dealer_cards)
 
     if action == "2":
         random.shuffle(cards)
@@ -38,6 +43,3 @@ while True:
         player_cards.append(uttaget_kort)
 
         print(player_cards)
-
-    if action == "6":
-        break
