@@ -42,4 +42,4 @@ while True:
         uttaget_kort = cards.pop()
         player_cards.append(uttaget_kort)
 
-        print(player_cards)
+    print(player_cards)
