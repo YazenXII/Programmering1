@@ -28,6 +28,7 @@ while True:
 
     if action == "2":
         random.shuffle = cards
-
+        player_cards.pop()
+        print(player_cards)
     if action == "6":
         break
