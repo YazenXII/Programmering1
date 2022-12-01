@@ -18,6 +18,12 @@ dealer_cards = []
 player_cards = []
 cards = ["2", "3", "4", "5", "6", "7", "8", "9", "jacks", "queen", "king"]
 
+for i in range(2):
+    random.shuffle(cards)
+    uttaget_kort = cards.pop()
+    player_cards.append(uttaget_kort)
+
+
 while True:
     action = input(
         "1. gaze cards\n" "2. Hit\n" "3. Stand\n" "4. Double\n" "5. Split\n" "6. Exit\n"
@@ -27,17 +33,11 @@ while True:
         print(player_cards)
 
     if action == "2":
-<<<<<<< HEAD
         random.shuffle(cards)
         uttaget_kort = cards.pop()
         player_cards.append(uttaget_kort)
 
-    print(player_cards)
-
-=======
-        random.shuffle = cards
-        player_cards.pop()
         print(player_cards)
->>>>>>> 44696b7a01bbdcaa370ca103225533ca2e8b6a23
+
     if action == "6":
         break
