@@ -18,9 +18,14 @@ while True:
 
     # Deck
 
-    dealer_cards = []
-    player_cards = []
-    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "Jacks", "Queen", "King"]
+Royalty = ("Jacks", "Queen", "king")
+dealer_cards = []
+player_cards = []
+cards = ["2", "3", "4", "5", "6", "7", "8", "9"]
+for card in dealer_cards:
+    dealer_sum = 0
+    if card in [Royalty]:
+        dealer_sum += 10
 
     # Hur båda får deras kort
 
@@ -33,20 +38,6 @@ while True:
         random.shuffle(cards)
         uttaget_kort = cards.pop()
         dealer_cards.append(uttaget_kort)
-
-    def player_card_value(cards):
-        player_card_value = 0
-        royalty = ["King", "Queen", "Jack"]
-        for player_card_value in cards:
-            if cards in range(1, 11):
-                player_card_value += cards
-            elif cards in royalty:
-                player_card_value += 1
-            else:
-                if player_card_value > 11:
-                    player_card_value += 1
-                else:
-                    player_card_value += 11
 
     # olika val man har
 
