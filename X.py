@@ -3,6 +3,16 @@ import random
 # beting system
 
 
+def sum_of_cards(local_list=list):
+    sum_of_cards = 0
+    for item in local_list:
+        if item.isnumeric():
+            sum_of_cards += int(item)
+        else:
+            sum_of_cards += 10
+    return sum_of_cards
+
+
 while True:
     user_cash = int(input("How much cash do you possess?"))
     while not (bet := input("How much do you wish to sacrifice?")).isdigit():
@@ -21,16 +31,20 @@ while True:
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
     player_cards = []
-    cards = ["2", "3", "4", "5", "6", "7", "8", "9"]
-    for card in dealer_cards:
-        dealer_sum = 0
-        if card in [Royalty]:
+    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jacks", "Queen", "king"]
+
+    def dealer_sum():
+
+        for card in dealer_cards:
+            dealer_sum = 0
+        if cards in Royalty:
             dealer_sum += 10
 
     for card in player_cards:
         player_sum = 0
-        if card in [Royalty]:
-            player_sum += 10
+    if cards in Royalty:
+        player_sum += 10
+
     # Hur båda får deras kort
 
     for i in range(2):
@@ -65,17 +79,20 @@ while True:
 
         if action == "2":
             random.shuffle(cards)
-            uttaget_kort = cards.pop()
-            player_cards.append(uttaget_kort)
+            shuffle_cards = cards.pop()
+            player_cards.append(shuffle_cards)
             print(player_cards)
+            if sum_of_cards(dealer_cards) >= 21:
+                print("Bust")
 
         # Det innebär att spelaren har slutat sin tur och dealer ska spela nu
 
         if action == "3":
             while True:
                 random.shuffle(cards)
-                random.shuffle(Royalty)
-                uttaget_kort = cards.pop(1)
-                uttaget_kort = Royalty.pop(1)
-                player_cards.append(uttaget_kort)
-                print(player_cards)
+                shuffle_cards = cards.pop()
+                dealer_cards.append(shuffle_cards)
+
+                if sum_of_cards(dealer_cards) >= 17:
+
+                    break
