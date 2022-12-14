@@ -82,8 +82,8 @@ while True:
             shuffle_cards = cards.pop()
             player_cards.append(shuffle_cards)
             print(player_cards)
-            if sum_of_cards(dealer_cards) >= 21:
-                print("Bust")
+        if sum_of_cards(dealer_cards) >= 21:
+            print("Bust")
 
         # Det innebär att spelaren har slutat sin tur och dealer ska spela nu
 
@@ -94,5 +94,13 @@ while True:
                 dealer_cards.append(shuffle_cards)
 
                 if sum_of_cards(dealer_cards) >= 17:
-
+                    print(dealer_cards)
                     break
+
+                if sum_of_cards(dealer_cards) > 21:
+                    print(dealer_cards)
+                    print("The dealer has gone over 21, player wins")
+                    break
+
+                if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
+                    print("player wins")
