@@ -1,6 +1,12 @@
 import random
 
 
+def countinue():
+    while True:
+        if input("Do you wish to countinue?(Yes/No)").capitalize() != "No":
+            break
+
+
 # Big brain code
 
 
@@ -30,13 +36,19 @@ print(
 
 while True:
 
+    if user_cash == 0:
+        print("You are out of money!")
+        continue
+
     # Deck
 
-    Ace = [1, 11]
+    Ace = ["1", "11"]
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
     player_cards = []
-    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jacks", "Queen", "king"]
+    cards = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "Jacks", "Queen", "king","11"]
+
+    if sum_of_cards(player_cards)[0]=
 
     def dealer_sum():
 
@@ -78,19 +90,24 @@ while True:
 
         if action == "1":
             if sum_of_cards(player_cards) == 21:
+                bet *= 2
                 print("Black jack!")
                 break
             if sum_of_cards(player_cards) > 21:
+                bet -= bet
                 print("Bust")
                 break
             if sum_of_cards(dealer_cards) == 21:
+                bet *= 2
                 print("Black jack!")
                 break
             if sum_of_cards(dealer_cards) > 21:
+                bet *= 2
                 print("Bust")
                 break
-            print("your cards", player_cards)
-            print("dealer cards", dealer_cards)
+            if sum_of_cards(player_cards):
+                print("Your cards", player_cards)
+                print("Dealer cards", dealer_cards)
 
         # Att få ett till kort
 
@@ -101,11 +118,14 @@ while True:
             print(player_cards)
 
         if sum_of_cards(player_cards) == 21:
+            bet *= 2
             print("Black jack!")
             break
 
         if sum_of_cards(player_cards) > 21:
-            print("Bust")
+            bet -= bet
+            print("player cards", player_cards)
+            print("player has gone over 21,Bust")
             break
         # Det innebär att spelaren har slutat sin tur och dealer ska spela nu
 
@@ -117,17 +137,20 @@ while True:
 
             if sum_of_cards(dealer_cards) == 17:
                 sum_of_cards(player_cards) > sum_of_cards(dealer_cards)
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("Player has won!")
                 break
 
             elif sum_of_cards(dealer_cards) > 21:
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("The dealer has gone over 21, player wins")
                 break
 
             if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("Player has won!")
                 break
 
@@ -138,13 +161,15 @@ while True:
             random.shuffle(cards)
             shuffle_cards = cards.pop()
             player_cards.append(shuffle_cards)
-            print(player_cards)
+            print("Your cards", player_cards)
 
             if sum_of_cards(player_cards) == 21:
+                bet *= 2
                 print("Black jack!")
                 break
 
             if sum_of_cards(player_cards) > 21:
+                bet -= bet
                 print("Bust")
                 break
 
@@ -154,17 +179,20 @@ while True:
 
             if sum_of_cards(dealer_cards) == 17:
                 sum_of_cards(player_cards) > sum_of_cards(dealer_cards)
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("Player has won!")
                 break
 
             elif sum_of_cards(dealer_cards) > 21:
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("The dealer has gone over 21, player wins")
                 break
 
             if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
-                print(dealer_cards)
+                bet *= 2
+                print("dealer cards", dealer_cards)
                 print("Player has won!")
                 break
 
