@@ -1,6 +1,7 @@
 import random
 
-# beting system
+
+# Big brain code
 
 
 def sum_of_cards(local_list=list):
@@ -13,6 +14,8 @@ def sum_of_cards(local_list=list):
     return sum_of_cards
 
 
+# beting system
+
 while True:
     user_cash = int(input("How much cash do you possess?"))
     while not (bet := input("How much do you wish to sacrifice?")).isdigit():
@@ -24,10 +27,9 @@ while True:
         user_cash,
         "Dollars, thank you for your purchase. You may enjoy yourself.",
     )
-    # dem här ska vara värd 10
 
     # Deck
-
+    Ace = [1, 11]
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
     player_cards = []
@@ -72,6 +74,18 @@ while True:
         # för att se dina och dealers kort
 
         if action == "1":
+            if sum_of_cards(player_cards) == 21:
+                print("Black jack!")
+                break
+            if sum_of_cards(player_cards) > 21:
+                print("Bust")
+                break
+            if sum_of_cards(dealer_cards) == 21:
+                print("Black jack!")
+                break
+            if sum_of_cards(dealer_cards) > 21:
+                print("Bust")
+                break
             print("your cards", player_cards)
             print("dealer cards", dealer_cards)
 
@@ -82,25 +96,51 @@ while True:
             shuffle_cards = cards.pop()
             player_cards.append(shuffle_cards)
             print(player_cards)
-        if sum_of_cards(dealer_cards) >= 21:
-            print("Bust")
 
+        if sum_of_cards(player_cards) > 21:
+            print("Bust")
+            break
         # Det innebär att spelaren har slutat sin tur och dealer ska spela nu
 
         if action == "3":
-            while True:
-                random.shuffle(cards)
-                shuffle_cards = cards.pop()
-                dealer_cards.append(shuffle_cards)
 
-                if sum_of_cards(dealer_cards) >= 17:
-                    print(dealer_cards)
-                    break
+            random.shuffle(cards)
+            shuffle_cards = cards.pop()
+            dealer_cards.append(shuffle_cards)
 
-                if sum_of_cards(dealer_cards) > 21:
-                    print(dealer_cards)
-                    print("The dealer has gone over 21, player wins")
-                    break
+            if sum_of_cards(dealer_cards) >= 17:
+                print(dealer_cards)
+                break
 
-                if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
-                    print("player wins")
+            elif sum_of_cards(dealer_cards) > 21:
+                print(dealer_cards)
+                print("The dealer has gone over 21, player wins")
+                break
+
+            if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
+                print(dealer_cards)
+                print("Player has won!")
+                break
+
+        # double down
+        if action == "4":
+            bet *= 2
+            print(bet)
+
+            if sum_of_cards(dealer_cards) >= 17:
+                print(dealer_cards)
+                break
+
+            elif sum_of_cards(dealer_cards) > 21:
+                print(dealer_cards)
+                print("The dealer has gone over 21, player wins")
+                break
+
+            if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
+                print(dealer_cards)
+                print("Player has won!")
+                break
+
+        # Split
+        if action == "5":
+            print("DO THIS TOO")
