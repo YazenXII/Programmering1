@@ -26,30 +26,15 @@ print(
     "Dollars, thank you for your purchase. You may enjoy yourself.",
 )
 
+
 while True:
 
     # Deck
 
-    Ace = ["1", "11"]
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
     player_cards = []
-    cards = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "Jacks",
-        "Queen",
-        "king",
-        "11",
-    ]
+    cards = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jacks", "Queen", "king"]
 
     def dealer_sum():
 
@@ -87,7 +72,7 @@ while True:
             "6. Exit\n"
         )
 
-        # för att se dina och dealers kort
+        # (HAND) för att se dina och dealers kort
 
         if action == "1":
             if sum_of_cards(player_cards) == 21:
@@ -110,8 +95,7 @@ while True:
                 print("Your cards", player_cards)
                 print("Dealer cards", dealer_cards)
 
-        # Att få ett till kort
-
+                # (HIT) Att få ett till kort
         if action == "2":
             random.shuffle(cards)
             shuffle_cards = cards.pop()
@@ -128,7 +112,8 @@ while True:
             print("player cards", player_cards)
             print("player has gone over 21,Bust")
             break
-        # Det innebär att spelaren har slutat sin tur och dealer ska spela nu
+
+        # (STAND) Det innebär att spelaren har slutat sin tur och dealer ska spela nu
 
         if action == "3":
 
@@ -136,20 +121,20 @@ while True:
             shuffle_cards = cards.pop()
             dealer_cards.append(shuffle_cards)
 
-            if sum_of_cards(dealer_cards) == 17:
+            if sum_of_cards(dealer_cards) >= 17:
                 sum_of_cards(player_cards) > sum_of_cards(dealer_cards)
                 bet *= 2
                 print("dealer cards", dealer_cards)
                 print("Player has won!")
                 break
 
-            elif sum_of_cards(dealer_cards) > 21:
+            if sum_of_cards(dealer_cards) > 21:
                 bet *= 2
                 print("dealer cards", dealer_cards)
                 print("The dealer has gone over 21, player wins")
                 break
 
-            if sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
+            elif sum_of_cards(player_cards) > sum_of_cards(dealer_cards):
                 bet *= 2
                 print("dealer cards", dealer_cards)
                 print("Player has won!")
@@ -197,15 +182,16 @@ while True:
                 print("Player has won!")
                 break
 
+        # Split(Behöver mer tid för den!)
+        if action == "5":
+
+            split_card = print("Not working at the moment wait until further notes!")
+            print(split_card)
         # Close this shit
 
         if action == "6":
-            break
-
-    while True:
-        play_again = raw_input("Play Again?(Y/N)")
-        if play_again.lower() == "y":
-            play()
-        elif play_again.lower() == "n":
-            print("Ok, maybe we can play later, bye.")
-            break
+            print("It was nice having you here")
+            exit()
+    if user_cash == 0:
+        print("You have been kicked since you are lacking funds")
+        exit()
