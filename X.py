@@ -203,4 +203,9 @@ while True:
             break
 
     while True:
-        Continue_game = input("Do you wish to countinue?")
+        play_again = raw_input("Play Again?(Y/N)")
+        if play_again.lower() == "y":
+            play()
+        elif play_again.lower() == "n":
+            print("Ok, maybe we can play later, bye.")
+            break
