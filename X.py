@@ -1,12 +1,5 @@
 import random
 
-
-def countinue():
-    while True:
-        if input("Do you wish to countinue?(Yes/No)").capitalize() != "No":
-            break
-
-
 # Big brain code
 
 
@@ -33,12 +26,7 @@ print(
     "Dollars, thank you for your purchase. You may enjoy yourself.",
 )
 
-
 while True:
-
-    if user_cash == 0:
-        print("You are out of money!")
-        continue
 
     # Deck
 
@@ -46,9 +34,22 @@ while True:
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
     player_cards = []
-    cards = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "Jacks", "Queen", "king","11"]
-
-    if sum_of_cards(player_cards)[0]=
+    cards = [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "Jacks",
+        "Queen",
+        "king",
+        "11",
+    ]
 
     def dealer_sum():
 
@@ -196,12 +197,10 @@ while True:
                 print("Player has won!")
                 break
 
-        # Split
-        if action == "5":
-            if sum_of_cards(player_cards)[0] == sum_of_cards(player_cards)[1]:
-                split_card = print("new")
-
         # Close this shit
 
         if action == "6":
             break
+
+    while True:
+        Continue_game = input("Do you wish to countinue?")
