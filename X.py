@@ -16,19 +16,22 @@ def sum_of_cards(local_list=list):
 
 # beting system
 
+user_cash = int(input("How much cash do you possess?"))
+while not (bet := input("How much do you wish to sacrifice?")).isdigit():
+    print("Insert Error, please write only in digits.")
+bet = int(bet)
+user_cash -= bet
+print(
+    "your current balance has been updated too",
+    user_cash,
+    "Dollars, thank you for your purchase. You may enjoy yourself.",
+)
+
+
 while True:
-    user_cash = int(input("How much cash do you possess?"))
-    while not (bet := input("How much do you wish to sacrifice?")).isdigit():
-        print("Insert Error, please write only in digits.")
-    bet = int(bet)
-    user_cash -= bet
-    print(
-        "your current balance has been updated too",
-        user_cash,
-        "Dollars, thank you for your purchase. You may enjoy yourself.",
-    )
 
     # Deck
+
     Ace = [1, 11]
     Royalty = ["Jacks", "Queen", "king"]
     dealer_cards = []
@@ -97,6 +100,10 @@ while True:
             player_cards.append(shuffle_cards)
             print(player_cards)
 
+        if sum_of_cards(player_cards) == 21:
+            print("Black jack!")
+            break
+
         if sum_of_cards(player_cards) > 21:
             print("Bust")
             break
@@ -108,8 +115,10 @@ while True:
             shuffle_cards = cards.pop()
             dealer_cards.append(shuffle_cards)
 
-            if sum_of_cards(dealer_cards) >= 17:
+            if sum_of_cards(dealer_cards) == 17:
+                sum_of_cards(player_cards) > sum_of_cards(dealer_cards)
                 print(dealer_cards)
+                print("Player has won!")
                 break
 
             elif sum_of_cards(dealer_cards) > 21:
@@ -126,9 +135,27 @@ while True:
         if action == "4":
             bet *= 2
             print(bet)
+            random.shuffle(cards)
+            shuffle_cards = cards.pop()
+            player_cards.append(shuffle_cards)
+            print(player_cards)
 
-            if sum_of_cards(dealer_cards) >= 17:
+            if sum_of_cards(player_cards) == 21:
+                print("Black jack!")
+                break
+
+            if sum_of_cards(player_cards) > 21:
+                print("Bust")
+                break
+
+            random.shuffle(cards)
+            shuffle_cards = cards.pop()
+            dealer_cards.append(shuffle_cards)
+
+            if sum_of_cards(dealer_cards) == 17:
+                sum_of_cards(player_cards) > sum_of_cards(dealer_cards)
                 print(dealer_cards)
+                print("Player has won!")
                 break
 
             elif sum_of_cards(dealer_cards) > 21:
@@ -143,4 +170,10 @@ while True:
 
         # Split
         if action == "5":
-            print("DO THIS TOO")
+            if sum_of_cards(player_cards)[0] == sum_of_cards(player_cards)[1]:
+                split_card = print("new")
+
+        # Close this shit
+
+        if action == "6":
+            break
